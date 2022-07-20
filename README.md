@@ -57,3 +57,23 @@ FT.SEARCH 'idx:observation'
   RETURN 2 $.valueQuantity.value $.effectiveDateTime
   SORTBY date_time
 ```
+
+## Adding tutorial to RedisInsight
+
+You can add FHIR Tutorial, based on this repo to the RedisInsight v2.
+
+![RedisInsight FHIR Tutorial](RedisInsight/RedisInsight.png)
+
+First - copy tutoril file to the RedisInsight directory:
+```
+cp RedisInsight/working_with_FHIR.md ~/.redisinsight-v2/tutorials/fhir/working_with_FHIR.md
+```
+Then add the content of the `RedisInsight/tutorials_fhir.json` file to the `~/.redisinsight-v2/tutorials/tutorials.json` file on your local machine as `$.tutorials.children.redis_FHIR` node. See [example here](RedisInsight/tutorials_json.png).
+
+You can also replace your existing `~/.redisinsight-v2/tutorials/tutorials.json` with provided `RedisInsight/tutorials.json`, but **it would override your existing local `tutorials.json` and erase all the changes made prior and/or break your existing RedisInsight installation. Proceed with caution!!!!**
+
+```bash
+#make backup copy first
+cp ~/.redisinsight-v2/tutorials/tutorials.json ~/.redisinsight-v2/tutorials/tutorials.json.bak
+cp RedisInsight/tutorials.json ~/.redisinsight-v2/tutorials/tutorials.json
+```
