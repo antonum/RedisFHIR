@@ -1,0 +1,18 @@
+{
+    "type": "group",
+    "id": "redis_fhir",
+    "label": "Redis and FHIR",
+    "args": {
+      "initialIsOpen": false
+    },
+    "children": {
+      "working_with_json": {
+        "type": "internal-link",
+        "id": "working_with_fhir",
+        "label": "Working with FHIR",
+        "args": {
+          "path": "/fhir/working_with_FHIR.md"
+        }
+      }
+    }
+  }

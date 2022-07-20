@@ -2,9 +2,6 @@ import redis
 import json
 import os
 r = redis.Redis(host='localhost', port=6379, db=0)
-#d = {"hello": "world", "some": "value"}
-#r.json().set("somekey", "$", d)
-#print(r.json().get("somekey"))
 
 filenames = os.listdir('data')
 for filename in filenames:
