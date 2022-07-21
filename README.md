@@ -90,18 +90,31 @@ You can add FHIR Tutorial, based on this repo to the RedisInsight v2.
 
 ![RedisInsight FHIR Tutorial](RedisInsight/RedisInsight.png)
 
-First - copy tutorial .md file to the RedisInsight directory:
-```
-cp RedisInsight/working_with_FHIR.md ~/.redisinsight-v2/tutorials/fhir/working_with_FHIR.md
-```
-Then add the content of the `RedisInsight/tutorials_fhir.json` file to the `~/.redisinsight-v2/tutorials/tutorials.json` file on your local machine as `$.tutorials.children.redis_FHIR` node. See [example here](RedisInsight/tutorials_json.png).
+The following commands should all this tutorial to the list of tutorials, avaliable in RedisInsight.
 
-You might need to restart the RedisInsight in order for changes to take effect.
+```bash
+#copy tutorial .md file to the RedisInsight directory
+cp RedisInsight/working_with_FHIR.md ~/.redisinsight-v2/tutorials/fhir/working_with_FHIR.md
+#make a backup copy of the `tutorials.json` 
+cp ~/.redisinsight-v2/tutorials/tutorials.json ~/.redisinsight-v2/tutorials/tutorials.json.bak
+#add Redis and FHIR tutorial to the tutorials.json
+jq '.tutorials.children += {"redis-fhir": input}' \
+  ~/.redisinsight-v2/tutorials/tutorials.json.bak \
+  RedisInsight/tutorials_fhir.json \
+  > ~/.redisinsight-v2/tutorials/tutorials.json
+```
+
+Try to switch between `Workbench` and `Browser` view in RedisInsight in order for the changes to take effect. If it doesn't help - restart it.
+
+### Adding tutorial to RedisInsight (manual steps)
+
+Use only if steps above fail.
+
+Then add the content of the `RedisInsight/tutorials_fhir.json` file to the `~/.redisinsight-v2/tutorials/tutorials.json` file on your local machine as `$.tutorials.children.redis_FHIR` node. See [example here](RedisInsight/tutorials_json.png).
 
 You can also replace your existing `~/.redisinsight-v2/tutorials/tutorials.json` with provided `RedisInsight/tutorials.json`, but **it would override your existing local `tutorials.json` and erase all the changes made prior and/or break your existing RedisInsight installation. Proceed with caution!!!!**
 
 ```bash
-#make backup copy first
-cp ~/.redisinsight-v2/tutorials/tutorials.json ~/.redisinsight-v2/tutorials/tutorials.json.bak
 cp RedisInsight/tutorials.json ~/.redisinsight-v2/tutorials/tutorials.json
 ```
+
