@@ -90,7 +90,7 @@ You can add FHIR Tutorial, based on this repo to the RedisInsight v2.
 
 ![RedisInsight FHIR Tutorial](RedisInsight/RedisInsight.png)
 
-The following commands should all this tutorial to the list of tutorials, avaliable in RedisInsight.
+The following commands should add this Redis FHIR tutorials to the list of tutorials, avaliable in RedisInsight. Note: these steps are tested on Mac/Bash and requres `jq`.
 
 ```bash
 #copy tutorial .md file to the RedisInsight directory
